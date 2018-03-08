@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46px"
+        android:background="#3aa6e8">
+        <TextView
+            android:id="@+id/tv_screen_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:lines="1"
+            android:text="@string/cameralib_title"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/iv_screen_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/cameralib_toolbar_back"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/crop_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_scan_title">
+        <cropper.CropView
+            android:id="@+id/crop_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <cropper.FrameOverlayView
+            android:id="@+id/overlay_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/iv_screen_cancel"
+            android:layout_width="72px"
+            android:layout_height="72px"
+            android:src="@mipmap/cameralib_cancel"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="80px"
+            android:layout_marginTop="182px"/>
+        <ImageView
+            android:id="@+id/iv_screen_confirm"
+            android:layout_width="72px"
+            android:layout_height="72px"
+            android:src="@mipmap/cameralib_confirm"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="80px"
+            android:layout_marginTop="334px"/>
+    </RelativeLayout>
+</LinearLayout>

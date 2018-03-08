@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">PhotoEditDemo</string>
+    <string name="commonbus_toolbar_name">图片编辑</string>
+    <string name="commonbus_leave_for_jigsaw">离开拼图</string>
+    <string name="commonbus_back_to_album">拍照</string>
+    <string name="commonbus_delate">删除</string>
+    <string name="commonbus_input_text">输入文字</string>
+    <string name="commonbus_edit_picture">编辑图片</string>
+    <string name="commonbus_to_album">返回相册</string>
+    <string name="commonbus_re_screen">重新截图</string>
+    <string name="commonbus_invaild_char">非法字符</string>
+    <string name="commonbus_input_max_num">已超过最大输入字数</string>
+    <string name="commonbus_input_num">%1$d/10</string>
+    <string name="commonbus_no_select_word">当前没有选择文字</string>
+    <string name="commonbus_imply">提示</string>
+    <string name="commonbus_cancel">取消</string>
+    <string name="commonbus_ok">确定</string>
+    <string name="commonbus_edit_text">编辑文字</string>
+    <string name="commonbus_input_word">请输入文字</string>
+    <string name="commonbus_font_color">字体颜色：</string>
+    <string name="camera_permission_confirmation">This app demonstrates the usage of CameraView. In order to do that, it needs permission to access camera.</string>
+    <string name="camera_permission_not_granted">Camera app cannot do anything without camera permission.</string>
+    <string name="cameralib_title">截图</string>
+    <string name="commonbus_invaild_photo">无效图片</string>
+    <string name="pick_image_intent_chooser_title">Select source</string>
+</resources>

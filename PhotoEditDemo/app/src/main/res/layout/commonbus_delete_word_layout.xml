@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="260px"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="58px"
+        android:background="@drawable/commonbus_blue_up_bg"
+        android:gravity="center"
+        android:paddingBottom="14px"
+        android:paddingTop="15px"
+        android:text="@string/commonbus_imply"
+        android:textColor="#ffffff"
+        android:textSize="20px" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/commonbus_delate"
+        android:paddingBottom="40px"
+        android:paddingTop="40px"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#bbbbbb" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60px"
+        android:background="@drawable/commonbus_gray_down_bg">
+
+        <TextView
+            android:id="@+id/iv_delete_word_cancel"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/commonbus_cancel" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#bbbbbb" />
+
+        <TextView
+            android:id="@+id/tv_delete_word_comfirm"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginRight="30px"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/commonbus_ok"
+            android:textColor="#3aa6e8" />
+    </LinearLayout>
+</LinearLayout>

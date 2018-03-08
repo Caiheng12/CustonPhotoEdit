@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.hengcai.photoeditdemo.view.FocusSurfaceView
+        android:id="@+id/preview_sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:visibility="visible"
+        app:focus_crop_height="267dp"
+        app:focus_crop_width="200dp"
+        app:focus_frame_can_change="true"
+        app:focus_frame_color="@android:color/holo_green_dark"
+        app:focus_frame_stroke_weight="1dp"
+        app:focus_guide_color="@android:color/holo_green_dark"
+        app:focus_guide_show_mode="not_show"
+        app:focus_guide_stroke_weight="1dp"
+        app:focus_handle_color="@android:color/holo_green_dark"
+        app:focus_handle_show_mode="not_show"
+        app:focus_handle_size="14dp"
+        app:focus_min_frame_size="50dp"
+        app:focus_mode="circle"
+        app:focus_overlay_color="#66000000"
+        app:focus_touch_padding="8dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_take_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/ic_camera"
+        app:useCompatPadding="true"
+        tools:ignore="RelativeOverlap" />
+
+    <ImageView
+        android:id="@+id/iv_camera_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ic_camera_cancel"
+        android:layout_marginRight="14px"
+        android:layout_marginTop="30px"/>
+
+    <ImageView
+        android:id="@+id/iv_camera_album"
+        android:layout_width="68px"
+        android:layout_height="68px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="14dp"
+        android:src="@drawable/crop_album" />
+
+    <LinearLayout
+        android:layout_width="500px"
+        android:layout_height="640px">
+
+    </LinearLayout>
+
+
+</RelativeLayout>
