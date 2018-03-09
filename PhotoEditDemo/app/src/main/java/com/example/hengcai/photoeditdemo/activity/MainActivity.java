@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView ivAddWordEraser;
     private ImageView ivEraserRevoke;
     private LinearLayout llBottomRevoke;
+    private BitmapFactory.Options opts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +87,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        if(!ValueUtil.isStrEmpty(origin_path)){
 //            originPath=origin_path;
 //        }
+        opts = new BitmapFactory.Options();
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.testpic, opts);
+        cameraPath= CommonUtil.saveBitmap(bitmap);
         operateUtils = new OperateUtils(this);
         handler=new Handler();
         initView();
@@ -134,9 +138,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initData(){
         title.setText(getString(R.string.commonbus_edit_picture));
         tvRetakePhoto.setText(getString(R.string.commonbus_back_to_album));
-       // initImage();
+        initImage();
         tvLeaveForJigsaw.setVisibility(View.GONE);
-        tvRetakePhoto.setVisibility(View.VISIBLE);
+        tvRetakePhoto.setVisibility(View.GONE);
     }
 
     private void initView() {
@@ -186,20 +190,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(viewBitmap!=null&&!viewBitmap.isRecycled()){
             viewBitmap.recycle();
         }
-        BitmapFactory.Options opts = new BitmapFactory.Options();
+       // viewBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.testpic, opts);
         try {
             viewBitmap = BitmapFactory.decodeStream(new FileInputStream(new File(cameraPath)) , null, opts);
-            operateView = new OperateView(MainActivity.this, viewBitmap);
-            operateView.setSelectChangeListener(this);
-            operateView.setItemClickListener(this);
-            operateView.setEraserNumChangeListener(this);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(viewBitmap.getWidth(), viewBitmap.getHeight());
-            operateView.setLayoutParams(layoutParams);
-            contentLayout.addView(operateView);
-            operateView.setMultiAdd(true); //设置此参数，可以添加多个文字
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        operateView = new OperateView(MainActivity.this, viewBitmap);
+        operateView.setSelectChangeListener(this);
+        operateView.setItemClickListener(this);
+        operateView.setEraserNumChangeListener(this);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(viewBitmap.getWidth(), viewBitmap.getHeight());
+        operateView.setLayoutParams(layoutParams);
+        contentLayout.addView(operateView);
+        operateView.setMultiAdd(true); //设置此参数，可以添加多个文字
     }
 
     /**
@@ -290,9 +294,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.tv_add_text) {
-            if(ValueUtil.isStrEmpty(cameraPath)){
-                return;
-            }
             //添加文字
             if(operateView.getCurrentSelectedItem()==null){
                 ToastUtils.showToast(MainActivity.this,getString(R.string.commonbus_no_select_word));
@@ -300,15 +301,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             addWordItem();
         } else if (i == R.id.iv_add_word_finish) {
-            if(ValueUtil.isStrEmpty(cameraPath)){
-                return;
-            }
             //完成
           //  addWordFinish();
         } else if(i == R.id.tv_delete_word){
-            if(ValueUtil.isStrEmpty(cameraPath)){
-                return;
-            }
             //删除
             if(operateView.getCurrentSelectedItem()==null){
                 ToastUtils.showToast(MainActivity.this,getString(R.string.commonbus_no_select_word));
@@ -327,9 +322,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             });
         }else if(i == R.id.iv_add_word){
-            if(ValueUtil.isStrEmpty(cameraPath)){
-                return;
-            }
             //添加白块
             operateView.setEraserUnenable();
             ivAddWordEraser.setImageResource(R.mipmap.commonbus_eraser);
@@ -340,9 +332,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 operateView.addItem(textObj);
             }
         }else if(i == R.id.iv_add_word_screen){
-            if(ValueUtil.isStrEmpty(cameraPath)){
-                return;
-            }
             //截屏
             operateView.setEraserUnenable();
             ivAddWordEraser.setImageResource(R.mipmap.commonbus_eraser);
@@ -352,13 +341,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (bmp != null) {
                     cameraPath = saveBitmap(bmp);
                 }
-
                 new CropUtil().startCropFixWidth(this,cameraPath,"");
             }
         }else if(i == R.id.tv_leave_for_jigsaw){
-            if(ValueUtil.isStrEmpty(cameraPath)){
-                return;
-            }
             finish();
         }else if(i == R.id.tv_retake_photo){
             if(operateView!=null){
