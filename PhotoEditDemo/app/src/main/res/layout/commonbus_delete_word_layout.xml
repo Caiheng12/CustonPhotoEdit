@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="260px"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#fff">
 
     <TextView
         android:layout_width="match_parent"
@@ -21,7 +22,8 @@
         android:layout_height="wrap_content"
         android:text="@string/commonbus_delate"
         android:paddingBottom="40px"
-        android:paddingTop="40px"/>
+        android:paddingTop="40px"
+        android:textColor="#666666"/>
 
     <View
         android:layout_width="match_parent"
@@ -39,7 +41,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/commonbus_cancel" />
+            android:text="@string/commonbus_cancel"
+            android:textColor="#666666"/>
 
         <View
             android:layout_width="1px"

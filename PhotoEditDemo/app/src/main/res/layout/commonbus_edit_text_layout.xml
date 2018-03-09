@@ -106,7 +106,8 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:text="@string/commonbus_cancel"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="#666666"/>
         <View
             android:layout_width="1px"
             android:layout_height="match_parent"
